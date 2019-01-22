@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/login.css" />
+		<title></title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="form row">
+				
+				<div class="login col-md-offset-2" id="login_form">
+					<div class="col-md-9">
+					<h2 >LOGIN </h2>
+					<div class="form-group ">
+						<i class="glyphicon glyphicon-user"></i>
+						<input class="form-control" placeholder="邮箱" type="text" />
+					</div>
+					<div class="form-group">
+						<i class="glyphicon glyphicon-lock"></i>
+						<input class="form-control " type="text" placeholder="密码" />
+					</div>
+					<div class="col-md-offset-0">
+						<button class="button btn btn-primary">登录</button>
+						<div style="float: left;"><a onclick="login()">忘记密码</a></div>
+						<div style="float: right;"><a onclick="login()">注册</a></div>
+					</div>
+					</div>
+					
+				</div>
+				
+				
+				<div class="register col-md-offset-2" id="login_form">
+					<div class="col-md-9">
+					<h3 class="text-center"> 邮箱注册</h3>
+					<div class="form-group ">
+						
+						<input class="form-control" type="text" placeholder="输入您的邮箱" />
+					</div>
+					<div class="form-group ">
+						
+						<input class="form-control" type="text" placeholder="输入您的昵称" />
+					</div>
+					<div class="form-group">
+						
+						<input class="form-control " type="password" placeholder="输入您的密码"/>
+					</div>
+					<div class="form-group">
+						
+						<input class="form-control " type="password" placeholder="输入您的密码"/>
+					</div>
+					
+					<div class="form-group">
+						<input id="Emali" class="verification_code form-control " type="text" placeholder="邮箱验证码"/>
+						<button id="GET_verification_code" class="GET-code btn btn-primary text-center">验证码</button>
+					</div>
+					<div class="col-md-offset-0">
+						
+						<button id="SUBMIT_REGISTER" class="button btn btn-primary">注册</button>
+						<!-- <button id="REGISTER_LOGIN"  class="button btn btn-primary">登录</button> -->
+					</div>
+					</div>
+					
+					<div><a onclick="login()">已有账号？直接登录</a></div>
+				</div>
+				
+			</div>
+		</div>
+		<script src="lib/jquery-3.3.1.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script>
+			$("#GET_verification_code").click(function(){
+				var emali=$("#Emali").val();
+				alert(emali);
+				$.ajax({
+					url:'http://101.132.143.173:7070/web/service/register/get-verification-code',
+					type:'post',
+					/* datatype:'jsonp',
+					jsonp:"callback", */
+					contentType:'application/json; charset=utf-8',
+					data:{
+						'data':emali
+					},
+					success:function(result){
+						console.log(result);
+					}
+				})	
+				
+			})
+			
+			
+			function login(){
+				$(".register").toggle();
+				$(".login").toggle();
+			}
+			
+			
+		</script>
+		
+	</body>
+</html>
