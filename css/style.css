@@ -1,0 +1,39 @@
+.row .user_img{
+	float: right; 
+	margin-left: 100px; 
+	margin-top: 10px;
+	position: relative; 
+}
+.row .user_info{
+	position: absolute; 
+	height: 150px; 
+	width: 270px;
+	top: 50px;
+	right: 0px;
+	z-index: 10;
+	background: #D1EEEE;
+	display: none;
+}
+.row .arrow{
+	position: absolute;
+	right: 5px;
+	top: -11px;
+	width:0;
+	height:0;
+	font-size:0;
+	border:solid 6px;
+	border-color:#222222  #222222 #F8F8F8 #222222 ;
+}
+.search-txt{
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+}
+.search-btn{
+	float: right;
+	height: 34px; 
+	width: 50px; 
+	border-bottom-left-radius: 0px; 
+	border-top-left-radius: 0px;
+	background: #2A2A2A;
+	border-color: #2A2A2A;
+}
