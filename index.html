@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="css/style.css" />
+		<title></title>
+	</head>
+	<style>
+	/* .row .user_img{
+		float: right; 
+		margin-left: 100px; 
+		margin-top: 10px;
+		position: relative; 
+	}
+	.row .user_info{
+		position: absolute; 
+		height: 300px; 
+		width: 270px;
+		
+		
+		top: 50px;
+		left: 1450px;
+		z-index: 10;
+	}
+	.row .arrow{
+		position: absolute;
+		
+	}
+	.search-txt{
+		border-bottom-right-radius: 0px;
+		border-top-right-radius: 0px;
+	}
+	.search-btn{
+		float: right;
+		height: 34px; 
+		width: 50px; 
+		border-bottom-left-radius: 0px; 
+		border-top-left-radius: 0px;
+		background: #2A2A2A;
+		border-color: #2A2A2A;
+	} */
+	</style>
+	<body>
+		<div class="row" style="width: 100%; margin: 0px; ">
+			<div class="row navbar navbar-inverse navbar-fixed-top" style=" height: 50px;">
+				<div class="col-md-10 col-md-offset-1" >
+					<a class="navbar navbar-brand">LOGO</a>
+					<ul class="compile-nav nav navbar-nav" >
+						<li> <a href="index.html"> 首页</a></li>
+						<li class="active"> <a href=""> 答题</a></li>
+						<li> <a href="everyday.html"> 每日挑战</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">注册</a></li>
+						<li><a href="#">登录</a></li>
+					</ul>
+					
+					<img id="user_img" class="user_img" width="30px" height="30px" src="img/login.jpg"  />
+					<div id="user_info"class="user_info" >
+						<div class="arrow"></div>
+						<div class="nav navbar-default text-center">
+							<i class="glyphicon glyphicon-user"></i><span>破军</span>
+						</div>
+						<div class="row" >
+							<div class="col-md-4 text-center">答题<br/>进度</div>
+							<div class="col-md-4 text-center">修改<br/>密码</div>
+							<div class="col-md-4 text-center">退出<br/>登录</div>
+						</div>
+					</div>
+					<form class="navbar-form navbar-right">
+						<input  type="text" placeholder="搜索内容" class="search-txt form-control" />
+						<button type="submit" class="search-btn btn btn-primary" >
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+						
+					</form>
+				</div>
+			</div>
+			<div id="topic-list" class="topic-list container" style="margin-top: 150px;">
+				<table class="table table-striped">
+					<thead>
+					<tr>
+						<th>序号</th>
+						<th>名称</th>
+						<th>难度</th>
+						<th>类型</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr  v-for="tp in data.data.data">
+						<td>{{tp.id}}</td>
+						<td>{{tp.title}} </td>
+						<td>简单</td>
+						<td>{{tp.type}}</td>
+					</tr>
+					
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script src="lib/jquery-3.3.1.js"></script>
+		<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+		<script src="lib/wangEditor/wangEditor.min.js"></script>
+		<script src="lib/vue.js"></script>
+		<script src="js/answer.js"></script>
+		<script>
+			var data='{"code": "string","data": {"currentPage": 0,"data": [{"content": ["string"],"id": 0,"title": "两数之和","type": "算法"}],"totalPage": 0,"totalSize": 0},"message": "string"}'
+			var json=JSON.parse(data);
+			var vue=new Vue({
+				el:"#topic-list",
+				data:{
+					data:json
+				}
+			})
+			
+			
+			
+		</script>
+	</body>
+</html>
